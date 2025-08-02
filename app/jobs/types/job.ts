@@ -1,4 +1,6 @@
-export interface IJobResponse extends IBase {
+import { IBase } from "@/types/base";
+
+export interface IJob extends IBase {
     company: string;
     logo: string;
     new: boolean;

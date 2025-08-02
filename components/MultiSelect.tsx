@@ -1,5 +1,5 @@
 "use client"
-import React, { useRef, useMemo, useState } from 'react'
+import React, { useRef, useMemo, useState, useEffect } from 'react'
 import { useCombobox, useMultipleSelection } from 'downshift'
 
 interface Option {
@@ -47,7 +47,6 @@ const MultiSelect = ({ options, placeholder, onChange, selectedValues }: IBasicS
 
   const {
     isOpen,
-    getToggleButtonProps,
     getMenuProps,
     getInputProps,
     highlightedIndex,
@@ -85,6 +84,13 @@ const MultiSelect = ({ options, placeholder, onChange, selectedValues }: IBasicS
       }
     },
   })
+
+  useEffect(() => {
+    const updated = options.filter((option) =>
+      selectedValues.includes(option.value)
+    );
+    setSelectedItems(updated);
+  }, [selectedValues, options]);
 
   return (
     <div className="w-full shadow-md">

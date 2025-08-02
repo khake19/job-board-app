@@ -1,26 +1,14 @@
-// components/JobCard.tsx
 import Image from "next/image";
-
+import { IJob } from "./types/job";
 
 export interface JobCardProps {
-  job: {
-    id: number;
-    company: string;
-    logo: string;
-    new: boolean;
-    featured: boolean;
-    position: string;
-    role: string;
-    level: string;
-    postedAt: string;
-    contract: string;
-    location: string;
-    languages: string[];
-    tools: string[];
-  };
+  job: IJob;
+  onTagClick?: (tag: string) => void;
 }
 
-export default function JobCard({ job }: JobCardProps) {
+export default function JobCard(props: JobCardProps) {
+  const { job, onTagClick } = props;
+  
   const {
     company,
     logo,
@@ -81,6 +69,7 @@ export default function JobCard({ job }: JobCardProps) {
           {tags.map((tag) => (
             <button
               key={tag}
+              onClick={() => onTagClick?.(tag)}
               className="bg-neutral-100 text-primary font-semibold px-2 py-1 rounded hover:bg-primary hover:text-white transition"
             >
               {tag}

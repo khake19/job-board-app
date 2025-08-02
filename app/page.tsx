@@ -1,11 +1,11 @@
-import JobList from "@/components/JobList";
-import { IJobResponse } from "@/types/job";
+import { fetchJobs } from "./jobs/api/jobs";
+import JobList from "./jobs/JobList";
 
 export default async function Home() {
-  const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/data.json`)
-  const jobs: IJobResponse[] = await data.json()
-
+  const jobs = await fetchJobs()
+  
   return (
       <JobList jobs={jobs} />
   );
 }
+
