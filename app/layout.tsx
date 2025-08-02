@@ -1,16 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, League_Spartan } from "next/font/google";
+import { League_Spartan } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 const leagueSpartan = League_Spartan({
   subsets: ['latin'],
@@ -34,7 +24,7 @@ export default function RootLayout({
       <body
         className={`${leagueSpartan.variable} antialiased `}
       >
-        <div className="h-40 bg-[url('/images/bg-header-desktop.svg')] bg-no-repeat bg-cover bg-primary">
+        <div className="relative h-40 bg-[url('/images/bg-header-desktop.svg')] bg-no-repeat bg-cover bg-primary pt-6">
         {children}
         </div>
       </body>
