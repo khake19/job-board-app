@@ -24,7 +24,7 @@ export default function RootLayout({
       <body
         className={`${leagueSpartan.variable} antialiased `}
       >
-        <div className="relative h-40 bg-[url('/images/bg-header-desktop.svg')] bg-no-repeat bg-cover bg-primary pt-6">
+        <div className="relative h-30 bg-[url('/images/bg-header-desktop.svg')] bg-no-repeat bg-cover bg-primary pt-6">
         {children}
         </div>
       </body>
