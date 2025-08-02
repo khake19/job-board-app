@@ -87,7 +87,7 @@ const MultiSelect = ({ options, placeholder, onChange, selectedValues }: IBasicS
   })
 
   return (
-    <div className="w-full">
+    <div className="w-full shadow-md">
       <div className="flex flex-col gap-1 relative">
         <div
           className="bg-white flex gap-2 items-center flex-wrap p-1 px-4 rounded-md border border-gray-200 min-h-[44px] relative cursor-text"
