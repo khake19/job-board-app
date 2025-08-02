@@ -112,7 +112,7 @@ const MultiSelect = ({ options, placeholder, onChange, selectedValues }: IBasicS
                   removeSelectedItem(item)
                   onChange(selectedItems.filter((i) => i.value !== item.value))
                 }}
-                className="text-xs bg-primary w-5 min-h-[32px] h-[32px] flex items-center justify-center rounded-tr rounded-br"
+                className="text-xs px-4 bg-primary w-5 min-h-[32px] h-[32px] flex items-center justify-center rounded-tr rounded-br hover:bg-neutral-400"
               >
                ✕
               </button>
