@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { IJob } from "./types/job";
 
-export interface JobCardProps {
+export interface IJobCardProps {
   job: IJob;
   onTagClick?: (tag: string) => void;
 }
 
-export default function JobCard(props: JobCardProps) {
+const JobCard = (props: IJobCardProps) => {
   const { job, onTagClick } = props;
   
   const {
@@ -80,3 +80,5 @@ export default function JobCard(props: JobCardProps) {
     </div>
   );
 }
+
+export default JobCard;
