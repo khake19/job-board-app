@@ -1,23 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Job Board App
 
-## Getting Started
+This is a simple job board app built with Next.js and Tailwind CSS. Users can filter job postings based on role, level, languages, and tools.
 
-First, run the development server:
+
+---
+
+## 🚀 Getting Started
+
+### 1. Unzip the project folder
+
+Unzip the folder you received or downloaded.
+
+```bash
+unzip job-board-app.zip
+cd job-board-app
+```
+
+### 1. Install dependencies
+
+Make sure you have the latest Node.js installed.
+
+```bash
+npm install
+```
+
+### 3. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 4. Open in your browser
 
-## Assumptions & Decisions
-- This is a small, single-page app, so I used a components/ folder instead of a features/ structure.
+Visit http://localhost:3000 to see the app running.
 
-- If the project were to grow (e.g., filters, search, admin dashboard), I’d consider splitting by feature/module.
+## 🛠 Tech Stack
+Next.js
 
+React
+
+Tailwind CSS
+
+
+## 📁 Project Structure
+
+```bash
+├── public/
+|   ├── data.json
+|   ├── images/
+├── app/
+│   ├── jobs/
+│   │   ├── components/
+│   │   ├── api/
+│   │   ├── components/
+│   │   ├── types/
+|   |   ├── JobCard.tsx
+|   |   ├── JobList.tsx
+│   ├── global.css
+│   ├── layout.tsx
+│   └── page.tsx
+├── components
+├── .gitignore
+├── package.json
+├── README.md
+└── ...
+```
+
+##  ✅ Notes
+This app loads job listings from `public/data.json`
+
+Designed to be responsive and mobile-first.
