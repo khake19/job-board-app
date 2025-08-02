@@ -1,8 +1,8 @@
 "use client"
 import { IJob } from "./types/job";
 import JobCard from "./JobCard";
-import MultiSelect from "@/components/MultiSelect";
 import { useMemo, useState } from "react";
+import Filters from "./components/Filters";
 
 interface IJobListProps {
     jobs: IJob[];   
@@ -12,20 +12,6 @@ const JobList = (props: IJobListProps) => {
     const { jobs } = props;
 
     const [selectedTags, setSelectedTags] = useState<string[]>([]);
-
-    // Extract all unique tags from job list
-    const allTags = useMemo(() => {
-        return Array.from(
-        new Set(
-            jobs.flatMap((job) => [
-            job.role,
-            job.level,
-            ...(job.languages || []),
-            ...(job.tools || []),
-            ])
-        )
-        );
-    }, [jobs]);
     
     const filteredJobs = useMemo(() => {
         if (selectedTags.length === 0) return jobs;
@@ -48,15 +34,7 @@ const JobList = (props: IJobListProps) => {
     };
     
     return <div className="px-4 mx-auto lg:w-[80%] mb-4 pt-6">
-        <div className="mt-12">
-            <MultiSelect 
-            options={allTags.map(tag => ({ label: tag, value: tag })) }
-             selectedValues={selectedTags.map((tag) => (tag))}
-             onChange={(selectedOptions) => {
-                setSelectedTags(selectedOptions.map((opt) => opt.value));
-            }}
-            />
-        </div>
+        <Filters jobs={jobs} selectedTags={selectedTags} onChange={setSelectedTags}/>
         {filteredJobs.map((job: IJob) => (
             <JobCard key={job.id} job={job} onTagClick={handleTagClick}/>
         ))}
