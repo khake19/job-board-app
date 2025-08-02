@@ -90,13 +90,13 @@ const MultiSelect = ({ options, placeholder, onChange, selectedValues }: IBasicS
     <div className="w-full">
       <div className="flex flex-col gap-1 relative">
         <div
-          className="bg-white flex gap-2 items-center flex-wrap p-1 rounded-md border border-gray-200 min-h-[40px] relative cursor-text"
+          className="bg-white flex gap-2 items-center flex-wrap p-1 px-4 rounded-md border border-gray-200 min-h-[44px] relative cursor-text"
           onClick={() => inputRef.current?.focus()}
         >
           {selectedItems.map((item, index) => (
             <div
               key={item.value}
-              className="flex items-center rounded-md mr-1 min-h-[28px] h-[28px] text-sm bg-neutral-100"
+              className="flex items-center rounded-md mr-1 min-h-[32px] h-[32px] text-sm bg-neutral-100"
               {...getSelectedItemProps({ selectedItem: item, index })}
             >
               <span className="ml-1 mr-1 text-primary">{item.label}</span>
@@ -106,7 +106,7 @@ const MultiSelect = ({ options, placeholder, onChange, selectedValues }: IBasicS
                   removeSelectedItem(item)
                   onChange(selectedItems.filter((i) => i.value !== item.value))
                 }}
-                className="text-xs bg-primary w-5 min-h-[28px] h-[28px] flex items-center justify-center rounded-tr rounded-br"
+                className="text-xs bg-primary w-5 min-h-[32px] h-[32px] flex items-center justify-center rounded-tr rounded-br"
               >
                ✕
               </button>
@@ -116,12 +116,12 @@ const MultiSelect = ({ options, placeholder, onChange, selectedValues }: IBasicS
           <input
             ref={inputRef}
             placeholder={selectedItems.length > 0 ? '' : placeholder}
-            className="flex-1 min-w-[80px] h-[28px] text-sm outline-none bg-transparent"
+            className="flex-1 min-w-[80px] h-[32px] text-sm outline-none bg-transparent"
             {...getInputProps(getDropdownProps({ preventKeyAction: isOpen }))}
           />
         {selectedItems.length > 0 && (
             <button
-              className="text-sm text-gray-600 font-semibold"
+              className="text-sm text-gray-600 font-semibold hover:underline hover:text-primary"
               onClick={() => {
                 setSelectedItems([])
                 onChange([])
@@ -131,7 +131,6 @@ const MultiSelect = ({ options, placeholder, onChange, selectedValues }: IBasicS
             </button>
           )}
         </div>
-
         <ul
          className={`absolute top-full w-full bg-white shadow-md rounded-md max-h-80 overflow-y-auto p-0 z-10 list-none ${
             isOpen && items.length ? 'block' : 'hidden'
@@ -142,7 +141,7 @@ const MultiSelect = ({ options, placeholder, onChange, selectedValues }: IBasicS
             items.map((item, index) => (
               <li
                 key={item.value}
-                className={`px-2 py-1 text-sm cursor-pointer text-primary ${
+                className={`px-3 py-2 text-sm cursor-pointer text-primary ${
                   highlightedIndex === index ? 'bg-neutral-200' : 'bg-white'
                 }`}
                 {...getItemProps({ item, index })}
